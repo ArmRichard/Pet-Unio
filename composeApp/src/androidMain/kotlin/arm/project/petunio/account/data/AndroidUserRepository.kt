@@ -1,10 +1,9 @@
 package arm.project.petunio.account.data
 
 import arm.project.petunio.core.data.Resource
-import arm.project.petunio.models.FirestoreUser
-import arm.project.petunio.models.User
+import arm.project.petunio.core.domain.FirestoreUser
+import arm.project.petunio.core.domain.User
 import arm.project.petunio.services.requireLoggedInUid
-import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import kotlinx.coroutines.tasks.await
@@ -13,10 +12,27 @@ class AndroidUserRepository(): UserRepository {
     private val db = Firebase.firestore
     private val userCollection = db.collection("users")
 
-    override suspend fun getUser(): Resource<User> {
+    override suspend fun getCurrentUser(): Resource<User> {
         return try {
             val uid = requireLoggedInUid()
 
+            val snapshot = userCollection.document(uid).get().await()
+
+            val user = snapshot.toObject(User::class.java)
+
+            if (snapshot.exists()) {
+                if (user != null) Resource.Success(user)
+                else Resource.Error(message = "User data is null")
+            } else {
+                Resource.Error(message = "Could not find user")
+            }
+        } catch (error: Exception) {
+            Resource.Error(message = error.message ?: "An unknown error occurred")
+        }
+    }
+
+    override suspend fun getUser(uid: String): Resource<User> {
+        return try {
             val snapshot = userCollection.document(uid).get().await()
 
             val user = snapshot.toObject(User::class.java)

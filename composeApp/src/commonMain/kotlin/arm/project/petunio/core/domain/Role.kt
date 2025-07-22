@@ -1,4 +1,4 @@
-package arm.project.petunio.models
+package arm.project.petunio.core.domain
 
 enum class Role {
     User,

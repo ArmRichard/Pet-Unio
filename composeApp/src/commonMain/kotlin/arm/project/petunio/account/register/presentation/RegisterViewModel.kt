@@ -6,8 +6,8 @@ import arm.project.petunio.account.data.AuthRepository
 import arm.project.petunio.account.data.UserRepository
 import arm.project.petunio.core.data.Resource
 import arm.project.petunio.core.domain.AuthModel
-import arm.project.petunio.models.Role
-import arm.project.petunio.models.User
+import arm.project.petunio.core.domain.Role
+import arm.project.petunio.core.domain.User
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch

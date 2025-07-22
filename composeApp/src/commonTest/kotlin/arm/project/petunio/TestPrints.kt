@@ -1,6 +1,6 @@
 package arm.project.petunio
 
-import arm.project.petunio.models.User
+import arm.project.petunio.core.domain.User
 import arm.project.petunio.services.provideUserFirestoreMapper
 import kotlin.time.Instant
 import kotlin.test.Test

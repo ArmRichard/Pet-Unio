@@ -1,6 +1,6 @@
 package arm.project.petunio.repositories
 
-import arm.project.petunio.models.User
+import arm.project.petunio.core.domain.User
 
 class UserFirestoreImplement : UserFirestoreMapper {
     override fun fromUserToFirestoreMap(user: User): Map<String, Any> {

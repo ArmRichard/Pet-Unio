@@ -1,6 +1,7 @@
-package arm.project.petunio.models
+package arm.project.petunio.core.domain
 
-data class FirestoreUser (
+data class User (
+    val uid: String,
     val username: String? = null,
     val email: String? = null,
     val role: Role = Role.User,
