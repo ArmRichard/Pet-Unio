@@ -1,7 +1,6 @@
 package arm.project.petunio.models
 
-data class User (
-    val uid: String,
+data class FirestoreUser (
     val username: String? = null,
     val email: String? = null,
     val role: Role = Role.User,

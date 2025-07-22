@@ -41,19 +41,25 @@ kotlin {
             implementation(libs.androidx.activity.compose)
             implementation(project.dependencies.platform("com.google.firebase:firebase-bom:33.16.0"))
             implementation("com.google.firebase:firebase-auth")
-            implementation("com.google.firebase:firebase-firestore-ktx")
+            implementation("com.google.firebase:firebase-firestore")
             implementation("com.google.firebase:firebase-messaging")
         }
         commonMain.dependencies {
             implementation(compose.runtime)
             implementation(compose.foundation)
-            implementation(compose.material3)
+            implementation(compose.material)
             implementation(compose.ui)
             implementation(compose.components.resources)
             implementation(compose.components.uiToolingPreview)
             implementation(libs.androidx.lifecycle.viewmodel)
             implementation(libs.androidx.lifecycle.runtimeCompose)
             implementation(libs.kotlinx.datetime)
+            implementation(project.dependencies.platform("com.google.firebase:firebase-bom:33.16.0"))
+            implementation("com.google.firebase:firebase-auth")
+            implementation("com.google.firebase:firebase-firestore")
+            implementation("com.google.firebase:firebase-messaging")
+
+            implementation("org.jetbrains.androidx.navigation:navigation-compose:2.9.0-beta03")
         }
         commonTest.dependencies {
             implementation(libs.kotlin.test)

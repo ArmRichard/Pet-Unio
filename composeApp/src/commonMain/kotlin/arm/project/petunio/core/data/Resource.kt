@@ -1,4 +1,4 @@
-package arm.project.petunio.viewmodels.states
+package arm.project.petunio.core.data
 
 sealed class Resource<T>(
     val data: T? = null,
